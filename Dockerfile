@@ -14,5 +14,6 @@ ENV PATH="/user/metaplex-foundation/metaplex/js/packages/cli/bin/linux/:$PATH"
 RUN solana config set --url https://api.devnet.solana.com
 RUN git clone https://github.com/exiled-apes/candy-machine-mint.git /user/candy-machine-mint
 RUN cd /user/candy-machine-mint && yarn install && yarn build && npm install -g typescript ts-node
+RUN git clone --branch v1.0.0 https://github.com/metaplex-foundation/metaplex.git ~/metaplex-foundation/metaplex && yarn install --cwd ~/metaplex-foundation/metaplex/js/
 
 RUN mkdir -p /user/workdir
