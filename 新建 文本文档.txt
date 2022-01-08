@@ -1,0 +1,4 @@
+AKLga5TY8V8Ro4q4iWEiuWTwa5krZKoBvyNTu6CnKhzo
+
+
+ export https_proxy=http://192.168.1.105:1081 http_proxy=http://192.168.1.105:1081 all_proxy=socks5://192.168.1.105:1081
