@@ -1,12 +1,12 @@
 FROM rust:buster
-
+USER root
 RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash -
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN apt update && apt install nodejs yarn jq sudo -y && npm install -g typescript ts-node 
 RUN mkdir -p /user/.local/share/solana
 RUN sh -c "$(curl -sSfL https://release.solana.com/stable/install)"
-ENV PATH="/user/.local/share/solana/install/active_release/bin/:$PATH"
+ENV PATH="/root/.local/share/solana/install/active_release/bin/:$PATH"
 # RUN solana-install update
 # RUN git clone https://github.com/metaplex-foundation/metaplex.git /user/metaplex-foundation/metaplex
 # RUN cd /user/metaplex-foundation/metaplex/js/packages/cli && yarn install && yarn bootstrap && yarn build && sed -i.backup -e 's/--no-bytecode//' package.json && yarn run package:linux
